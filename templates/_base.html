@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/bulma.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    
+    {% comment %} <link rel="stylesheet" href="{% static 'css/debug.css' %}"> {% endcomment %}
+    <script type="text/javascript">
+      function myFunction() {
+        var element = document.querySelector("imput[type="password"]");
+        element.classList.add("input is-success");
+      }
+    </script>
+    <style>
+      .center{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+</head>
+<body onload="myFunction()">
+    
+    {% block content %} 
+    {% endblock %}
+    
+</body>
+</html>

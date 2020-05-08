@@ -1,0 +1,54 @@
+{% extends '_base.html' %}
+{% load static %}
+{% block title %}Author{% endblock %}
+
+{% block content %}
+<div class="box">
+    <nav class="level">
+        <div class="level-left">
+            <div class="level-item">
+                <span class="icon has-text-info is-large">
+                    <i class="fas fa-sticky-note"></i>
+                </span>
+                {{user.user_type}}
+                
+            </div>
+            <div class="level-item">
+                <span class="icon has-text-info is-large">
+                    <i class="fas fa-clock"></i>
+                </span>
+                Author
+            </div>
+        </div>
+        <!-- Right side -->
+        <div class="level-right">
+            <div class="level-item">
+            <a href="{% url 'logout' %}"><div class = "button ">LOG OUT</div></a>
+            <div class="level-item">
+            </span>
+            </div>
+        </div>
+
+    </nav>
+</div>
+
+    <!-- /.section -->
+		<p> {{tweet.author}} </p>
+        <p> {{tweet.text}}</p>
+        <p> {{tweet.state}}</p>
+        {% for comment in comments %}
+        <div class="comments" style="padding: 10px;">
+            <p class="font-weight-bold">
+            {{ comment.tweet.author.email }}
+            <span class=" text-muted font-weight-normal">
+                {{ comment.created_at }}
+            </span>
+            </p>
+            {{ comment.text | linebreaks }}
+            {{comment.tweet.text}}
+        </div>
+        {% endfor %}
+	<!-- /.section -->
+    
+
+{% endblock %}
